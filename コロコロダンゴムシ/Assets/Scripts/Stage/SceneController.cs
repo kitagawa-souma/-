@@ -74,7 +74,7 @@ namespace RunGame.Stage
                 var stage = Resources.Load<GameObject>(stageName);
                 Instantiate(stage);
             }
-
+            /*
             // それぞれのステージ用のBGMを再生
             AudioClip clip = null;
             // bgmを読み込む
@@ -93,6 +93,7 @@ namespace RunGame.Stage
             bgmAudio.Play();
 
             StartCoroutine(OnStart());
+            */
         }
 
         /// <summary>
