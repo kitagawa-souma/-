@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
 using UnityEngine;
 
 namespace RunGame.Stage
@@ -14,9 +16,13 @@ namespace RunGame.Stage
         private float player_down = 0.0f;
         private float player_right = 0.0f;
         private float player_left = 0.0f;
+        public Vector2 player_pos;
 
-
-        int CountTime=4;
+        public Vector2 Player_pos
+        {
+            get { return player_pos; }
+            set { player_pos = value; }
+        }
 
         /// <summary>
         /// プレイ中の場合はtrue、ステージ開始前またはゲームオーバー時にはfalse
@@ -52,9 +58,11 @@ namespace RunGame.Stage
         // Update is called once per frame
         void Update()
         {
-                       
+             Vector2 player_pos = transform.position;
+            Player_pos = player_pos;
         }
-        private void FixedUpdate()
+
+    private void FixedUpdate()
         {
             bool is_pushed_Up_arrow = Input.GetKey(KeyCode.UpArrow);
             bool is_pushed_Down_arrow = Input.GetKey(KeyCode.DownArrow);
