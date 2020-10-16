@@ -46,10 +46,8 @@ namespace RunGame.Stage
             float rad = (angle + (Time.time * 100)) * Mathf.Deg2Rad;  //ラジアン
             sakana_Posx = Mathf.Cos(rad) * radius;
             sakana_Posy = Mathf.Sin(rad) * radius;
-            move_X = sakana.transform.position.x + sakana_Posx;
-            move_Y = sakana.transform.position.y + sakana_Posy;
 
-            transform.position = new Vector3(move_X, move_Y, 0.0f);
+            transform.localPosition = new Vector3(sakana_Posx, sakana_Posy, 0.0f);
         }
     }
 }

@@ -36,18 +36,18 @@ public class BFF : MonoBehaviour
         UnityEngine.Debug.Log(BulletCount);
         angle = BulletCount * (360 / BulletF_MAX);
         float Rad = angle * Mathf.Deg2Rad * Time.time;
-        if (BulletCount == 0)
+        if (BulletCount == 0)//１つ目
         {
             float posx = Mathf.Cos(Rad) * r;
             float posy = Mathf.Sin(Rad) * r;
-            Vector3 new_pos = player.transform.position;    //プレイヤーのワールド座標
+            Vector3 new_pos = player.transform.position;
             new_pos.x += posx;
             new_pos.y += posy;
 
             // 複製を作る
             Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
             Tama[BulletCount].transform.parent = transform;
-                //子になる方        親になる方
+
             BulletFish script = Tama[BulletCount].GetComponent < BulletFish >();
             script.ID = BulletCount;
                 
@@ -55,7 +55,7 @@ public class BFF : MonoBehaviour
         }
 
         // このifはアイテムをとった場合をテストするためのコード
-        if (BulletCount == 1 && Input.GetKey(KeyCode.Z))
+        if (BulletCount == 1 && Input.GetKey(KeyCode.Z))//２つ目
         {                
             float posx = Mathf.Cos(Rad) * r;
             float posy = Mathf.Sin(Rad) * r;
@@ -72,7 +72,7 @@ public class BFF : MonoBehaviour
 
             BulletCount++;
         }
-        if (BulletCount == 2 && Input.GetKey(KeyCode.A))
+        if (BulletCount == 2 && Input.GetKey(KeyCode.A))//３つ目
         {
             float posx = Mathf.Cos(Rad) * r;
             float posy = Mathf.Sin(Rad) * r;
@@ -90,7 +90,7 @@ public class BFF : MonoBehaviour
             BulletCount++;
             
         }
-        if (BulletCount == 3 && Input.GetKey(KeyCode.Q))
+        if (BulletCount == 3 && Input.GetKey(KeyCode.Q))//４つ目
         {
             float posx = Mathf.Cos(Rad) * r;
             float posy = Mathf.Sin(Rad) * r;
@@ -107,7 +107,7 @@ public class BFF : MonoBehaviour
 
             BulletCount++;
         }
-        if (BulletCount == 4 && Input.GetKey(KeyCode.X))
+        if (BulletCount == 4 && Input.GetKey(KeyCode.X))//５つ目
         {
             float posx = Mathf.Cos(Rad) * r;
             float posy = Mathf.Sin(Rad) * r;
