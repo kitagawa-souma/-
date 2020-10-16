@@ -12,7 +12,7 @@ namespace RunGame.Stage
     public class Player : MonoBehaviour
     {
         // 通常の移動速度を指定します。
-        private float player_up = 0.0f;
+        private float P_posY = 0.0f;
         private float player_down = 0.0f;
         private float player_right = 0.0f;
         private float player_left = 0.0f;
@@ -53,6 +53,7 @@ namespace RunGame.Stage
             Vector2 size = collider.size;
             size.x *= 0.75f;    // 横幅
             size.y *= 0.25f;    // 高さは4分の1
+
         }
 
         // Update is called once per frame
@@ -82,11 +83,11 @@ namespace RunGame.Stage
             if (is_pushed_Up_arrow == true)
             {
                 InertiaFlag_up = false;
-                if (player_up < 0.2f && InertiaFlag_up == false)
+                if (P_posY < 0.2f && InertiaFlag_up == false)
                 {
-                    player_up += 0.005f;
+                    P_posY += 0.005f;
                 }
-                transform.Translate(0.0f, player_up, 0.0f);   
+                transform.Translate(0.0f, P_posY, 0.0f);   
             }
             else if (is_pushed_Up_arrow == false)
             {
@@ -94,10 +95,10 @@ namespace RunGame.Stage
             }
             if (InertiaFlag_up == true)
             {
-                if (player_up > 0.0f)
+                if (P_posY > 0.0f)
                 {
-                    player_up -= 0.01f;
-                    transform.Translate(0.0f, player_up, 0.0f);
+                    P_posY -= 0.01f;
+                    transform.Translate(0.0f, P_posY, 0.0f);
                 }
             }
 
@@ -165,7 +166,6 @@ namespace RunGame.Stage
                     transform.Translate(-player_left, 0.0f, 0.0f);
                 }
             }
-            
         }
 
         /// <summary>

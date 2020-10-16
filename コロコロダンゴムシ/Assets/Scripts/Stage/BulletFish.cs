@@ -11,40 +11,45 @@ namespace RunGame.Stage
 {
     public class BulletFish : MonoBehaviour
     {
-        float Speed = 0.05f;
-        float radius = 2.0f;
-        Player player;
+        public float Speed = 1.0f;
+        public float radius = 2.0f;
+        int BulletF_MAX = 5;
         float sakana_Posx;
         float sakana_Posy;
-        private Vector3 defposition;
-
+        float move_X;
+        float move_Y;
+        float angle;
+        public int ID;
+        
         public GameObject sakana;
 
-        //private Vector2 initPosition;
         // Start is called before the first frame update
         void Start()
         {
-            //player = FindObjectOfType<Player>();
+
         }
 
         // Update is called once per frame
         void Update()
         {
-            //sakana_Posx = sakana.transform.position.x;
-            //sakana_Posy = sakana.transform.position.y;
-            //Vector2 initPosition_P = player.player_pos;
-            //Vector2 P_pos = initPosition_P;
 
-            float rad= Speed * Mathf.Rad2Deg * Time.time;
-            sakana_Posx = Mathf.Cos(rad) * radius;
-            sakana_Posy = Mathf.Sin(rad) * radius;
-            //transform.position = P_pos + initPosition;
-            transform.position = new Vector3(sakana_Posx + sakana.transform.position.x, sakana_Posy + sakana.transform.position.y,0.0f);
+            
         }
 
         void FixedUpdate()
         {
-            
+            //回転
+            sakana_Posx = sakana.transform.position.x;
+            sakana_Posy = sakana.transform.position.y;
+
+            angle = ID * (360 / BulletF_MAX);                       //角度
+            float rad = (angle + (Time.time * 100)) * Mathf.Deg2Rad;  //ラジアン
+            sakana_Posx = Mathf.Cos(rad) * radius;
+            sakana_Posy = Mathf.Sin(rad) * radius;
+            move_X = sakana.transform.position.x + sakana_Posx;
+            move_Y = sakana.transform.position.y + sakana_Posy;
+
+            transform.position = new Vector3(move_X, move_Y, 0.0f);
         }
     }
 }

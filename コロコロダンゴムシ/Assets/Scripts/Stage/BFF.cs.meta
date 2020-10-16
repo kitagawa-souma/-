@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: ffd6ebc75d77a7a4db30a3024358dbc3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Tama: {fileID: 1551224195633721687, guid: 5ba1e644b45f2f2478ff0efac2803ecf, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

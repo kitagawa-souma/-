@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9048238283160158229}
+  - component: {fileID: 100221463691014422}
   - component: {fileID: 9048238283160158230}
   - component: {fileID: 9048238283160158228}
   - component: {fileID: 9048238283160158227}
@@ -22,7 +22,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9048238283160158229
+--- !u!4 &100221463691014422
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,6 +50,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -61,6 +63,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -258,11 +261,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021b646b9c6ca0f41a6b7430ffd1be6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  dashSpeed: 6
-  jumpPower: 5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  soundOnDash: {fileID: 8300000, guid: bb12485cddd7eee4eb0ebb425a257757, type: 3}
-  isGrounded: 0
+  player_pos: {x: 0, y: 0}
