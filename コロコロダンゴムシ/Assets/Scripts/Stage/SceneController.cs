@@ -10,6 +10,7 @@ namespace RunGame.Stage
     /// </summary>
     public class SceneController : MonoBehaviour
     {
+        public int score;
         #region インスタンスへのstaticなアクセスポイント
         /// <summary>
         /// このクラスのインスタンスを取得します。
@@ -47,12 +48,16 @@ namespace RunGame.Stage
         /// <summary>
         /// ステージ開始からの経過時間(秒)を取得します。
         /// </summary>
-        public float PlayTime { get; private set; }
+        //public float PlayTime { get; private set; }
+
         //public float PlayTime {
         //    get { return playTime; }
         //    private set { playTime = value; }
         //}
         //float playTime = 0;
+
+
+        public int Score { get; private set; }
 
         // 起動しているOnPlay()コルーチン
         Coroutine playState = null;
@@ -138,7 +143,7 @@ namespace RunGame.Stage
 
             while (true)
             {
-                PlayTime += Time.deltaTime;
+                //PlayTime += Time.deltaTime;
 
 #if UNITY_EDITOR
                 // 「Enter」キーが押された場合『リザルト画面』へ
@@ -196,9 +201,9 @@ namespace RunGame.Stage
         IEnumerator OnStageClear()
         {
             // ベストタイムを更新
-            if (PlayTime < GameController.Instance.BestTime)
+            if (Score < GameController.Instance.BestTime)
             {
-                GameController.Instance.BestTime = PlayTime;
+                GameController.Instance.BestTime = Score;
             }
             UiManager.Instance.ShowMessage("CLEAR!");
             yield return new WaitForSeconds(1);
@@ -210,7 +215,7 @@ namespace RunGame.Stage
                 {
                     // ステージ番号を伝えてから「Result」を読み込む
                     Result.SceneController.StageNo = StageNo;
-                    Result.SceneController.ClearTime = PlayTime;
+                    Result.SceneController.ClearTime = Score;
                     SceneManager.LoadScene("Result");
                     break;
                 }

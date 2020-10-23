@@ -67,7 +67,7 @@ namespace RunGame.Stage
         /// </summary>
         private void UpdateTimeUI()
         {
-            timeUI.text = SceneController.Instance.PlayTime.ToString("00.00");
+            timeUI.text = SceneController.Instance.score.ToString("000000");
         }
         #endregion
 
