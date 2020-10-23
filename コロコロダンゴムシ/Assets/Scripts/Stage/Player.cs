@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
 using UnityEngine;
 
 namespace RunGame.Stage
@@ -10,7 +12,17 @@ namespace RunGame.Stage
     public class Player : MonoBehaviour
     {
         // 通常の移動速度を指定します。
-        private float speed = 0.2f;
+        private float player_up = 0.0f;
+        private float player_down = 0.0f;
+        private float player_right = 0.0f;
+        private float player_left = 0.0f;
+        public Vector2 player_pos;
+
+        public Vector2 Player_pos
+        {
+            get { return player_pos; }
+            set { player_pos = value; }
+        }
 
         /// <summary>
         /// プレイ中の場合はtrue、ステージ開始前またはゲームオーバー時にはfalse
@@ -46,31 +58,114 @@ namespace RunGame.Stage
         // Update is called once per frame
         void Update()
         {
-
+             Vector2 player_pos = transform.position;
+            Player_pos = player_pos;
         }
-        private void FixedUpdate()
+
+    private void FixedUpdate()
         {
-            bool is_pushed_up_arrow = Input.GetKey(KeyCode.UpArrow);
+            bool is_pushed_Up_arrow = Input.GetKey(KeyCode.UpArrow);
             bool is_pushed_Down_arrow = Input.GetKey(KeyCode.DownArrow);
             bool is_pushed_Right_arrow = Input.GetKey(KeyCode.RightArrow);
             bool is_pushed_Left_arrow = Input.GetKey(KeyCode.LeftArrow);
 
-            if (is_pushed_up_arrow == true)
+            bool is_pushedup_up_arrow = Input.GetKeyUp(KeyCode.UpArrow);
+            bool is_pushedup_down_arrow = Input.GetKeyUp(KeyCode.DownArrow);
+            bool is_pushedup_right_arrow = Input.GetKeyUp(KeyCode.RightArrow);
+            bool is_pushedup_left_arrow = Input.GetKeyUp(KeyCode.LeftArrow);
+
+            bool InertiaFlag_up = false;
+            bool InertiaFlag_down = false;
+            bool InertiaFlag_right = false;
+            bool InertiaFlag_left = false;
+
+            if (is_pushed_Up_arrow == true)
             {
-                transform.Translate(0.0f, speed, 0.0f);
+                InertiaFlag_up = false;
+                if (player_up < 0.2f && InertiaFlag_up == false)
+                {
+                    player_up += 0.005f;
+                }
+                transform.Translate(0.0f, player_up, 0.0f);   
             }
+            else if (is_pushed_Up_arrow == false)
+            {
+                InertiaFlag_up = true;
+            }
+            if (InertiaFlag_up == true)
+            {
+                if (player_up > 0.0f)
+                {
+                    player_up -= 0.01f;
+                    transform.Translate(0.0f, player_up, 0.0f);
+                }
+            }
+
             if (is_pushed_Down_arrow == true)
             {
-                transform.Translate(0.0f, -speed, 0.0f);
+                InertiaFlag_down = false;
+                if (player_down < 0.2f && InertiaFlag_down == false)
+                {
+                    player_down += 0.005f;
+                }
+                transform.Translate(0.0f, -player_down, 0.0f);
             }
+            else if (is_pushed_Down_arrow == false)
+            {
+                InertiaFlag_down = true;
+            }
+            if (InertiaFlag_down == true)
+            {
+                if (player_down > 0.0f)
+                {
+                    player_down -= 0.01f;
+                    transform.Translate(0.0f, -player_down, 0.0f);
+                }
+            }
+
             if (is_pushed_Right_arrow == true)
             {
-                transform.Translate(speed, 0.0f, 0.0f);
+                InertiaFlag_right = false;
+                if (player_right < 0.2f && InertiaFlag_right == false)
+                {
+                    player_right += 0.005f;
+                }
+                transform.Translate(player_right, 0.0f, 0.0f);
+            }
+            else if (is_pushed_Right_arrow == false)
+            {
+                InertiaFlag_right = true;
+            }
+            if (InertiaFlag_right == true)
+            {
+                if (player_right > 0.0f)
+                {
+                    player_right -= 0.01f;
+                    transform.Translate(player_right, 0.0f, 0.0f);
+                }
             }
             if (is_pushed_Left_arrow == true)
             {
-                transform.Translate(-speed, 0.0f, 0.0f);
+                InertiaFlag_left = false;
+                if (player_left < 0.2f && InertiaFlag_left == false)
+                {
+                    player_left += 0.005f;
+                }
+                transform.Translate(-player_left, 0.0f, 0.0f);
             }
+            else if (is_pushed_Left_arrow == false)
+            {
+                InertiaFlag_left = true;
+            }
+            if (InertiaFlag_left == true)
+            {
+                if (player_left > 0.0f)
+                {
+                    player_left -= 0.01f;
+                    transform.Translate(-player_left, 0.0f, 0.0f);
+                }
+            }
+            
         }
 
         /// <summary>

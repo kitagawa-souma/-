@@ -23,7 +23,7 @@ namespace RunGame.Title
             if (Input.GetKeyUp(KeyCode.Return))
             {
                 // 『ステージ選択画面』へシーン遷移
-                SceneManager.LoadScene("SelectStage");
+                SceneManager.LoadScene("Stage 0");
             }
         }
 
@@ -34,7 +34,7 @@ namespace RunGame.Title
         public void OnClickStartButton()
         {
             // 『ステージ選択画面』へシーン遷移
-            SceneManager.LoadScene("SelectStage");
+            SceneManager.LoadScene("Stage 0");
         }
     }
 }
