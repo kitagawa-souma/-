@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3732562044724623493}
   - component: {fileID: 3732562044724623498}
   - component: {fileID: 3732562044724623495}
+  - component: {fileID: 2934202927552831040}
   - component: {fileID: 3732562044724623494}
   - component: {fileID: 3732562044724623489}
   m_Layer: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3732562044724623499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -117,6 +118,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7031e479d0482634ab500b0171739d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0.7
+--- !u!114 &2934202927552831040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732562044724623499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88fd2fc07e47fef4eb23cf1e9a807406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RockPrefab: {fileID: 3397359188640674624, guid: 79d691d0b3c739748b8a8fc1b945c757,
+    type: 3}
 --- !u!58 &3732562044724623494
 CircleCollider2D:
   m_ObjectHideFlags: 0

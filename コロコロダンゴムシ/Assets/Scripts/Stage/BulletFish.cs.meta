@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: d6734319f1a184647a6afa2fb09796a3
+guid: ae8b004134f5bf642a9c0ea4e725b391
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sakana: {fileID: 9048238283160158231, guid: 04ee8b71dcceef84eb66c02b3391418c,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

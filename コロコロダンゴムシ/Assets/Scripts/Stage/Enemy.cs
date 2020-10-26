@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class Enemy : MonoBehaviour
     private bool Trigger = false;
     private int rotate;
     public float timer = 0.7f;
+    private float pos_x;
+    private float pos_y;
+    private float ene_speed = 0.01f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +34,11 @@ public class Enemy : MonoBehaviour
         {
             transform.Rotate(0.0f, 0.0f, -0.5f);
         }
-        transform.Translate(0.0f, -0.01f, 0.0f);
+        pos_x = transform.position.x;
+        pos_y = transform.position.y;
+        pos_x -= ene_speed;
+        transform.position = new Vector3(pos_x, pos_y, 0.0f);
+        
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
