@@ -10,6 +10,7 @@ using System.Net;
 
 public class BFF : MonoBehaviour
 {
+
     public GameObject[] Tama;
     public GameObject player;
     public GameObject BulletFish;
@@ -22,9 +23,9 @@ public class BFF : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- //       BulletCount = GetComponent<BulletFish>().ID;
-        
-        BulletFish script=BulletFish.GetComponent<BulletFish>();
+        //       BulletCount = GetComponent<BulletFish>().ID;
+
+        BulletFish script = BulletFish.GetComponent<BulletFish>();
         r = script.radius;
     }
 
@@ -47,15 +48,15 @@ public class BFF : MonoBehaviour
             Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
             Tama[BulletCount].transform.parent = transform;
 
-            BulletFish script = Tama[BulletCount].GetComponent < BulletFish >();
+            BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
             script.ID = BulletCount;
-                
+
             BulletCount++;
         }
 
         // このifはアイテムをとった場合をテストするためのコード
         if (BulletCount == 1 && Input.GetKey(KeyCode.Z))//２つ目
-        {                
+        {
             float posx = Mathf.Cos(Rad) * r;
             float posy = Mathf.Sin(Rad) * r;
             Vector3 new_pos = player.transform.position;
@@ -87,7 +88,7 @@ public class BFF : MonoBehaviour
             script.ID = BulletCount;
 
             BulletCount++;
-            
+
         }
         if (BulletCount == 3 && Input.GetKey(KeyCode.Q))//４つ目
         {
