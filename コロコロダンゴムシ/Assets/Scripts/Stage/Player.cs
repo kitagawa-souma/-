@@ -64,15 +64,15 @@ namespace RunGame.Stage
 
     private void FixedUpdate()
         {
-            bool is_pushed_Up_arrow = Input.GetKey(KeyCode.UpArrow);
-            bool is_pushed_Down_arrow = Input.GetKey(KeyCode.DownArrow);
-            bool is_pushed_Right_arrow = Input.GetKey(KeyCode.RightArrow);
-            bool is_pushed_Left_arrow = Input.GetKey(KeyCode.LeftArrow);
+            bool is_pushed_Up_arrow = Input.GetKey(KeyCode.W);
+            bool is_pushed_Down_arrow = Input.GetKey(KeyCode.S);
+            bool is_pushed_Right_arrow = Input.GetKey(KeyCode.D);
+            bool is_pushed_Left_arrow = Input.GetKey(KeyCode.A);
 
-            bool is_pushedup_up_arrow = Input.GetKeyUp(KeyCode.UpArrow);
-            bool is_pushedup_down_arrow = Input.GetKeyUp(KeyCode.DownArrow);
-            bool is_pushedup_right_arrow = Input.GetKeyUp(KeyCode.RightArrow);
-            bool is_pushedup_left_arrow = Input.GetKeyUp(KeyCode.LeftArrow);
+            bool is_pushedup_up_arrow = Input.GetKeyUp(KeyCode.W);
+            bool is_pushedup_down_arrow = Input.GetKeyUp(KeyCode.S);
+            bool is_pushedup_right_arrow = Input.GetKeyUp(KeyCode.D);
+            bool is_pushedup_left_arrow = Input.GetKeyUp(KeyCode.A);
 
             bool InertiaFlag_up = false;
             bool InertiaFlag_down = false;
