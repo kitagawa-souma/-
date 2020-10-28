@@ -11,6 +11,7 @@ namespace RunGame.Stage
     public class SceneController : MonoBehaviour
     {
         public int score;
+        private float timer = 0.0f;
         #region インスタンスへのstaticなアクセスポイント
         /// <summary>
         /// このクラスのインスタンスを取得します。
@@ -220,6 +221,15 @@ namespace RunGame.Stage
                     break;
                 }
                 yield return null;  // 次のフレームまで待機
+            }
+        }
+        void Update()
+        {
+            timer += Time.deltaTime;
+            if(timer >= 1.0f)
+            {
+                score += 20;
+                timer = 0.0f;
             }
         }
     }

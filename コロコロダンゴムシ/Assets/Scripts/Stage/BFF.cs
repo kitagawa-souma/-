@@ -72,7 +72,7 @@ public class BFF : MonoBehaviour
 
             BulletCount++;
         }
-        if (BulletCount == 2 && Input.GetKey(KeyCode.A))//３つ目
+        if (BulletCount == 2 && Input.GetKey(KeyCode.C))//３つ目
         {
             float posx = Mathf.Cos(Rad) * r;
             float posy = Mathf.Sin(Rad) * r;
