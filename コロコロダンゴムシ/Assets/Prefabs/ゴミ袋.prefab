@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e6e23063aecae4e9f88c139ae85701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanPrefab: {fileID: 636228234963585425, guid: c50dea9467a53e642a0ad93fa0fc1e43,
+  CanPrefab: {fileID: 4210791567659228767, guid: 12f1cac1d9936e94d83f0ac31df886fc,
     type: 3}
 --- !u!58 &7735573460468511903
 CircleCollider2D:
@@ -164,7 +164,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.1
+  m_GravityScale: 0.05
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

@@ -11,6 +11,11 @@ namespace RunGame.Stage
     public class SceneController : MonoBehaviour
     {
         public int score;
+        //public int Score
+        //{
+        //    get { return score; }
+        //    set { score = value; }
+        //}
         private float timer = 0.0f;
         #region インスタンスへのstaticなアクセスポイント
         /// <summary>
@@ -56,9 +61,6 @@ namespace RunGame.Stage
         //    private set { playTime = value; }
         //}
         //float playTime = 0;
-
-
-        public int Score { get; private set; }
 
         // 起動しているOnPlay()コルーチン
         Coroutine playState = null;
@@ -202,9 +204,9 @@ namespace RunGame.Stage
         IEnumerator OnStageClear()
         {
             // ベストタイムを更新
-            if (Score < GameController.Instance.BestTime)
+            if (score < GameController.Instance.BestTime)
             {
-                GameController.Instance.BestTime = Score;
+                GameController.Instance.BestTime = score;
             }
             UiManager.Instance.ShowMessage("CLEAR!");
             yield return new WaitForSeconds(1);
@@ -216,7 +218,7 @@ namespace RunGame.Stage
                 {
                     // ステージ番号を伝えてから「Result」を読み込む
                     Result.SceneController.StageNo = StageNo;
-                    Result.SceneController.ClearTime = Score;
+                    Result.SceneController.ClearTime = score;
                     SceneManager.LoadScene("Result");
                     break;
                 }

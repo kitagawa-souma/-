@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5117283122786678163}
   m_Layer: 8
   m_Name: BulletFish
-  m_TagString: Untagged
+  m_TagString: fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

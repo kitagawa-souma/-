@@ -8,12 +8,12 @@ public class EnemyFactory : MonoBehaviour
     public float up_lim;
     public float down_lim;
 
-    float CreateTimer = 0.0f;
-    float CreateTime = 0.0f;
-    float StartTimer = 0.0f;
-    int ran_ene;
-    bool enemySpawn = true;
-    float rand_pos = 0.0f;
+    private float CreateTimer = 0.0f;
+    private float CreateTime = 0.0f;
+    private float StartTimer = 0.0f;
+    private int ran_ene;
+    private bool enemySpawn = true;
+    private float rand_pos = 0.0f;
 
     void Start()
     {

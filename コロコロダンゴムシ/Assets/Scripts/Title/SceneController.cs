@@ -23,7 +23,7 @@ namespace RunGame.Title
             if (Input.GetKeyUp(KeyCode.Return))
             {
                 // 『ステージ選択画面』へシーン遷移
-                SceneManager.LoadScene("Stage");
+                SceneManager.LoadScene("SelectStage");
             }
         }
 

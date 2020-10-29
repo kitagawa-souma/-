@@ -32,7 +32,12 @@ namespace RunGame.SelectStage
                 var button = buttons.GetChild(index);
                 // ボタンのテキストを修正
                 button.GetComponentInChildren<Text>().text =
-                    string.Format("STAGE {0}\n{1}", index, stageNames[index]);
+                string.Format("STAGE {0}\n{1}", index, stageNames[index]);
+                if(index==0)
+                {
+                    button.GetComponentInChildren<Text>().text =
+                    string.Format("操作説明", index, stageNames[index]);
+                }
             }
         }
 
@@ -41,9 +46,19 @@ namespace RunGame.SelectStage
             // 「Enter」キーが押された場合
             if (Input.GetKeyUp(KeyCode.Return)) {
                 // 『ステージ画面』へシーン遷移
-                Stage.SceneController.StageNo = selectedIndex;
-                SceneManager.LoadScene("Stage");
-                return;
+                if (selectedIndex == 0)
+                {
+                    Stage.SceneController.StageNo = selectedIndex;
+                    SceneManager.LoadScene("rule");
+                    return;
+                }
+                if (selectedIndex==1)
+                {
+                    Stage.SceneController.StageNo = selectedIndex;
+                    SceneManager.LoadScene("Stage");
+                    return;
+                }
+                
             }
             // 左カーソルキーが押された場合
             else if (Input.GetKeyUp(KeyCode.LeftArrow)) {

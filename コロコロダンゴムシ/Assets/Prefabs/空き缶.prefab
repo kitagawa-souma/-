@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7537092484035265304}
   - component: {fileID: 6545264473320250922}
   m_Layer: 0
-  m_Name: "\u7A7A\u304D\u7F36 (1)"
+  m_Name: "\u7A7A\u304D\u7F36"
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.1
+  m_GravityScale: 0.05
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

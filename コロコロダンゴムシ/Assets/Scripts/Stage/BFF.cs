@@ -8,132 +8,136 @@ using UnityEngine;
 using RunGame.Stage;
 using System.Net;
 
-public class BFF : MonoBehaviour
+namespace RunGame.Stage
 {
-
-    public GameObject[] Tama;
-    public GameObject player;
-    public GameObject BulletFish;
-    public int BulletCount;
-    public int BulletF_MAX = 5;
-    float P_pos;
-    float r;
-    float angle;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //       BulletCount = GetComponent<BulletFish>().ID;
-
-        BulletFish script = BulletFish.GetComponent<BulletFish>();
-        r = script.radius;
-    }
-
-    // Update is called once per frame
-    void Update()
+    public class BFF : MonoBehaviour
     {
 
-        UnityEngine.Debug.Log(BulletCount);
-        angle = BulletCount * (360 / BulletF_MAX);
-        float Rad = angle * Mathf.Deg2Rad * Time.time;
-        if (BulletCount == 0)//１つ目
+        public GameObject[] Tama;
+        public GameObject player;
+        public GameObject BulletFish;
+        public int BulletCount;
+        public int BulletF_MAX = 5;
+        private float P_pos;
+        private float r;
+        private float angle;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            float posx = Mathf.Cos(Rad) * r;
-            float posy = Mathf.Sin(Rad) * r;
-            Vector3 new_pos = player.transform.position;
-            new_pos.x += posx;
-            new_pos.y += posy;
+            //       BulletCount = GetComponent<BulletFish>().ID;
 
-            // 複製を作る
-            Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
-            Tama[BulletCount].transform.parent = transform;
-
-            BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
-            script.ID = BulletCount;
-
-            BulletCount++;
+            BulletFish script = BulletFish.GetComponent<BulletFish>();
+            r = script.radius;
         }
 
-        // このifはアイテムをとった場合をテストするためのコード
-        if (BulletCount == 1 && Input.GetKey(KeyCode.Z))//２つ目
+        // Update is called once per frame
+        void Update()
         {
-            float posx = Mathf.Cos(Rad) * r;
-            float posy = Mathf.Sin(Rad) * r;
-            Vector3 new_pos = player.transform.position;
-            new_pos.x += posx;
-            new_pos.y += posy;
+            BulletFish count = BulletFish.GetComponent<BulletFish>();
+            BulletCount = count.counter;
+            //UnityEngine.Debug.Log(BulletCount);
+            angle = BulletCount * (360 / BulletF_MAX);
+            float Rad = angle * Mathf.Deg2Rad * Time.time;
+            if (BulletCount == 0)//１つ目
+            {
+                float posx = Mathf.Cos(Rad) * r;
+                float posy = Mathf.Sin(Rad) * r;
+                Vector3 new_pos = player.transform.position;
+                new_pos.x += posx;
+                new_pos.y += posy;
 
-            // 複製を作る
-            Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
-            Tama[BulletCount].transform.parent = transform;
+                // 複製を作る
+                Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
+                Tama[BulletCount].transform.parent = transform;
 
-            BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
-            script.ID = BulletCount;
+                BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
+                script.ID = BulletCount;
 
-            BulletCount++;
+                BulletCount++;
+            }
+            
+            // このifはアイテムをとった場合をテストするためのコード
+            if (BulletCount == 1 && Input.GetKey(KeyCode.Z))//２つ目
+            {
+                float posx = Mathf.Cos(Rad) * r;
+                float posy = Mathf.Sin(Rad) * r;
+                Vector3 new_pos = player.transform.position;
+                new_pos.x += posx;
+                new_pos.y += posy;
+
+                // 複製を作る
+                Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
+                Tama[BulletCount].transform.parent = transform;
+
+                BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
+                script.ID = BulletCount;
+
+                BulletCount++;
+            }
+            if (BulletCount == 2 && Input.GetKey(KeyCode.Z))//３つ目
+            {
+                float posx = Mathf.Cos(Rad) * r;
+                float posy = Mathf.Sin(Rad) * r;
+                Vector3 new_pos = player.transform.position;
+                new_pos.x += posx;
+                new_pos.y += posy;
+
+                // 複製を作る
+                Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
+                Tama[BulletCount].transform.parent = transform;
+
+                BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
+                script.ID = BulletCount;
+
+                BulletCount++;
+
+            }
+            if (BulletCount == 3 && Input.GetKey(KeyCode.Z))//４つ目
+            {
+                float posx = Mathf.Cos(Rad) * r;
+                float posy = Mathf.Sin(Rad) * r;
+                Vector3 new_pos = player.transform.position;
+                new_pos.x += posx;
+                new_pos.y += posy;
+
+                // 複製を作る
+                Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
+                Tama[BulletCount].transform.parent = transform;
+
+                BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
+                script.ID = BulletCount;
+
+                BulletCount++;
+            }
+            if (BulletCount == 4 && Input.GetKey(KeyCode.Z))//５つ目
+            {
+                float posx = Mathf.Cos(Rad) * r;
+                float posy = Mathf.Sin(Rad) * r;
+                Vector3 new_pos = player.transform.position;
+                new_pos.x += posx;
+                new_pos.y += posy;
+
+                // 複製を作る
+                Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
+                Tama[BulletCount].transform.parent = transform;
+
+                BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
+                script.ID = BulletCount;
+
+                BulletCount++;
+            }
+            //中地先生のコード
+            //if (BulletCount < BulletF_MAX)
+            //{
+            //    float posx = Mathf.Cos(Rad) * r;
+            //    float posy = Mathf.Sin(Rad) * r;
+            //    new_pos = player.transform.position;
+            //    new_pos.x += posx;
+            //    new_pos.y += posy;
+            //    GameObject Bullet_Fish = Instantiate(Tama[i], new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
+            //    BulletCount++;
+            //}
         }
-        if (BulletCount == 2 && Input.GetKey(KeyCode.C))//３つ目
-        {
-            float posx = Mathf.Cos(Rad) * r;
-            float posy = Mathf.Sin(Rad) * r;
-            Vector3 new_pos = player.transform.position;
-            new_pos.x += posx;
-            new_pos.y += posy;
-
-            // 複製を作る
-            Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
-            Tama[BulletCount].transform.parent = transform;
-
-            BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
-            script.ID = BulletCount;
-
-            BulletCount++;
-
-        }
-        if (BulletCount == 3 && Input.GetKey(KeyCode.Q))//４つ目
-        {
-            float posx = Mathf.Cos(Rad) * r;
-            float posy = Mathf.Sin(Rad) * r;
-            Vector3 new_pos = player.transform.position;
-            new_pos.x += posx;
-            new_pos.y += posy;
-
-            // 複製を作る
-            Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
-            Tama[BulletCount].transform.parent = transform;
-
-            BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
-            script.ID = BulletCount;
-
-            BulletCount++;
-        }
-        if (BulletCount == 4 && Input.GetKey(KeyCode.X))//５つ目
-        {
-            float posx = Mathf.Cos(Rad) * r;
-            float posy = Mathf.Sin(Rad) * r;
-            Vector3 new_pos = player.transform.position;
-            new_pos.x += posx;
-            new_pos.y += posy;
-
-            // 複製を作る
-            Tama[BulletCount] = Instantiate(BulletFish, new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
-            Tama[BulletCount].transform.parent = transform;
-
-            BulletFish script = Tama[BulletCount].GetComponent<BulletFish>();
-            script.ID = BulletCount;
-
-            BulletCount++;
-        }
-        //中地先生のコード
-        //if (BulletCount < BulletF_MAX)
-        //{
-        //    float posx = Mathf.Cos(Rad) * r;
-        //    float posy = Mathf.Sin(Rad) * r;
-        //    new_pos = player.transform.position;
-        //    new_pos.x += posx;
-        //    new_pos.y += posy;
-        //    GameObject Bullet_Fish = Instantiate(Tama[i], new Vector3(new_pos.x, new_pos.y), Quaternion.identity);
-        //    BulletCount++;
-        //}
     }
 }

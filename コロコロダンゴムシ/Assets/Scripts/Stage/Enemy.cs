@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
+using RunGame.Stage;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,10 +15,32 @@ public class Enemy : MonoBehaviour
     private float pos_x;
     private float pos_y;
     private float ene_speed = 0.01f;
+    GameObject scenecontroller;
+    SceneController script;
+    #region インスタンスへのstaticなアクセスポイント
+    /// <summary>
+    /// このクラスのインスタンスを取得します。
+    /// </summary>
+    public static Enemy Instance
+    {
+        get { return instance; }
+    }
+    static Enemy instance = null;
+
+    /// <summary>
+    /// Start()より先に実行されます。
+    /// </summary>
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        scenecontroller = GameObject.Find("scenecontroller");
+        script = scenecontroller.GetComponent<SceneController>();
         rotate = Random.Range(1, 3);
         anim = GetComponent<Animator>();
     }
@@ -46,6 +69,7 @@ public class Enemy : MonoBehaviour
         if (collision.tag == "Bullet")
         {
             anim.SetTrigger("Hit");
+            script.score += 20;
             Trigger = true;
             Invoke("DelayMethod", timer);
         }
